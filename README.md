@@ -48,4 +48,82 @@ Step 6: Enable MFA <br>
 Step 7: Never use root for daily work
 
 
+# Deploying Node.js on AWS EC2
+Step 1: Create EC2 instance - I am using Ubuntu Free Tier <>
+Step 2: In security section - leave all settings and add PORT 3000 from your IP address <br>
+Step 3: Create KEY pair and download - .PEM or .PPK format <br>
+Step 4: Launch instance <br>
+Step 5: Wait for turning on instance and connect with your generated keypair <br>
+Step 6: Every instance has own public IP - use that for connection for example from Putty - Windows
+
+![Snímek obrazovky 2025-07-07 191231](https://github.com/user-attachments/assets/2a4a72df-e87a-46ca-9be9-f911e2b85571)
+
+Step 7: Setup EC2 Instance - Download and install updates
+```
+sudo apt update
+sudo apt upgrade
+```
+Step 8: Install Node.js
+```
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+Step 9: Upload your node.JS file for run to Ubuntu EC2 Instance
+```
+You can use tool: WinSCP - Windows
+On Mac, Linux rsync - rsync -avz /path/to/local/file username@remote_host:/path/to/remote/destination/
+-a: Archive mode (preserves permissions, timestamps, etc.)
+-v: Verbose output (optional but helpful)
+-z: Compress file during transfer (optional, good for large files)
+/path/to/local/file: Path to the file you're uploading
+```
+Step 10: Run in terminal 
+```
+node example.js
+```
+![Snímek obrazovky 2025-07-07 192723](https://github.com/user-attachments/assets/61fcae76-99be-4b65-901b-57d947aa0df2)
+
+Step 10: Set your service like System Service - for running on background 
+```
+sudo nano /etc/systemd/system/myapp.service
+
+[Unit]
+Description=Simple Node.js Servioce
+After=network.target multi-user.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/JS
+ExecStart=/usr/bin/node /home/ubuntu/JS/example.js
+Restart=on-failure
+Environment=NODE_ENV=production
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=myapp
+
+[Install]
+WantedBy=multi-user.target
+```
+Step 11: Reload systemd and start your service
+```
+sudo systemctl daemon-reload
+sudo systemctl enable myapp.service
+sudo systemctl start myapp.service
+sudo systemctl status myapp.service
+```
+If your Node.js app need DB you can install it very easy
+```
+sudo apt install mysql-server
+sudo systemctl start mysql
+sudo systemctl enable mysql
+sudo mysql -u root
+
+CREATE DATABASE my_app;
+CREATE USER 'my_app_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyFirstPass123!';
+GRANT ALL PRIVILEGES ON my_app.* TO 'my_app_user'@'localhost';
+```
+
+
+
+
 
