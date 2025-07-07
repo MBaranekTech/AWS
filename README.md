@@ -56,7 +56,8 @@ Step 4: Launch instance <br>
 Step 5: Wait for turning on instance and connect with your generated keypair <br>
 Step 6: Every instance has own public IP - use that for connection for example from Putty - Windows
 
-![Snímek obrazovky 2025-07-07 191231](https://github.com/user-attachments/assets/2a4a72df-e87a-46ca-9be9-f911e2b85571)
+![Snímek obrazovky 2025-07-07 191231](https://github.com/user-attachments/assets/f00ea881-c495-48c0-865f-4130d440fe74)
+
 
 Step 7: Setup EC2 Instance - Download and install updates
 ```
@@ -81,7 +82,8 @@ Step 10: Run in terminal
 ```
 node example.js
 ```
-![Snímek obrazovky 2025-07-07 192723](https://github.com/user-attachments/assets/61fcae76-99be-4b65-901b-57d947aa0df2)
+
+![Snímek obrazovky 2025-07-07 192723](https://github.com/user-attachments/assets/9b0f2c51-bcb7-4eb5-89b9-81ccd18e552e)
 
 Step 10: Set your service like System Service - for running on background 
 ```
