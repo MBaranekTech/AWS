@@ -1,8 +1,8 @@
 # AWS
 
-## 📖 What is AWS?
+## 🌐 What is AWS?
 
-🌐 **AWS** provides on-demand cloud services like servers, databases, storage, networking, machine learning, and more — all accessible over the internet. <br>
+provides on-demand cloud services like servers, databases, storage, networking, machine learning, and more — all accessible over the internet. <br>
 Instead of buying and maintaining your own physical hardware, you rent what you need from AWS and scale as you go.
 ---
 
@@ -23,7 +23,7 @@ Global infrastructure <br>
 High availability & security <br>
 Wide range of services <br>
 
-## 📝 How to START with AWS?
+## 📝 AWS - First steps
 Step 1: Create an AWS Account: https://aws.amazon.com <br>
 Step 2: Fill information - enter your details <br>
 Step 3: Choose account typ (Personal or Professional) <br>
@@ -34,7 +34,7 @@ Step 7: Sign in to the AWS Management Console - ROOT Account <br>
 Step 8: Enable MFA <br>
 Step 9: Never use root for daily work <br>
 
-## 📝 AWS - First steps: Security
+
 # 🧱 Create a separate AWS user/account with full admin access 
 AWS root user has unrestricted access - Billing card, etc. <br>
 Root user use only for critical tasks <br>
